@@ -9,8 +9,13 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
+# Add vscode repo
+RUN sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+
+
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+dnf5 install -y code
 
 # Use a COPR Example:
 #
