@@ -1,9 +1,11 @@
+ARG BASE_IMAGE=ghcr.io/ublue-os/bazzite-nvidia:stable
+
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/bazzite-nvidia-open:stable
+FROM ${BASE_IMAGE}
 
 ### [IM]MUTABLE /opt
 ## Some bootable images, like Fedora, have /opt symlinked to /var/opt, in order to

@@ -29,6 +29,15 @@ jobs:
   build_push:
     name: Build and push image
     runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        include:
+          - gpu: nvidia
+            base_image: ghcr.io/ublue-os/bazzite-nvidia:stable
+            image_suffix: nvidia
+          - gpu: intel
+            base_image: ghcr.io/ublue-os/bazzite:stable
+            image_suffix: intel
 
     permissions:
       contents: read
@@ -38,9 +47,9 @@ jobs:
     steps:
       - name: Prepare environment
         run: |
-          # Lowercase the image uri
+          # Create Image name
           echo "IMAGE_REGISTRY=${IMAGE_REGISTRY,,}" >> ${GITHUB_ENV}
-          echo "IMAGE_NAME=${IMAGE_NAME,,}" >> ${GITHUB_ENV}
+          echo "IMAGE_NAME=${IMAGE_NAME,,}-${matrix.image_suffix}" >> ${GITHUB_ENV}
 
       # These stage versions are pinned by https://github.com/renovatebot/renovate
       - name: Checkout
@@ -115,6 +124,9 @@ jobs:
           image: ${{ env.IMAGE_NAME }}
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
+          build-args: |
+           BASE_IMAGE=${{ matrix.base_image }}
+           GPU_VARIANT=${{ matrix.gpu }}
           oci: false
 
       # Rechunk is a script that we use on Universal Blue to make sure there isnt a single huge layer when your image gets published.
