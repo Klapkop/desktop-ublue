@@ -29,6 +29,13 @@ dnf5 install -y code chezmoi
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
+#
+
+#### Install Flatpacks ####
+cat <<EOF >> /usr/share/ublue-os/bazzite/flatpak/install
+com.brave.Browser
+md.obsidian.Obsidian
+EOF
 
 #### Example for enabling a System Unit File
 
