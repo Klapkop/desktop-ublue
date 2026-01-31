@@ -21,7 +21,7 @@ EOF
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
 # this installs a package from fedora repos
-dnf5 install -y code
+dnf5 install -y code chezmoi
 
 # Use a COPR Example:
 #
