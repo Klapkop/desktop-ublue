@@ -35,6 +35,7 @@ dnf5 install -y code chezmoi
 cat <<EOF >> /usr/share/ublue-os/bazzite/flatpak/install
 com.brave.Browser
 md.obsidian.Obsidian
+com.spotify.Client
 EOF
 
 #### Example for enabling a System Unit File
