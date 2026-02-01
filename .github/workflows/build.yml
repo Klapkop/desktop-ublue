@@ -32,12 +32,11 @@ jobs:
     strategy:
       matrix:
         include:
-          - gpu: nvidia
-            base_image: ghcr.io/ublue-os/bazzite-nvidia:stable
+          - base_image: ghcr.io/ublue-os/bazzite-nvidia:stable
             image_suffix: nvidia
-          - gpu: intel
+          - 
             base_image: ghcr.io/ublue-os/bazzite:stable
-            image_suffix: intel
+            image_suffix: generic
 
     permissions:
       contents: read
@@ -126,7 +125,6 @@ jobs:
           labels: ${{ steps.metadata.outputs.labels }}
           build-args: |
            BASE_IMAGE=${{ matrix.base_image }}
-           GPU_VARIANT=${{ matrix.gpu }}
           oci: false
 
       # Rechunk is a script that we use on Universal Blue to make sure there isnt a single huge layer when your image gets published.
