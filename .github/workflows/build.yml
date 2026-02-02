@@ -12,6 +12,7 @@ on:
     paths-ignore:
       - '**/README.md'
       - '.github/workflows/build-disk.yml'
+      - 'disk_config/**'
   workflow_dispatch:
 
 env:
