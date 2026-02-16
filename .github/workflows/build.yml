@@ -36,9 +36,9 @@ jobs:
         include:
           - base_image: ghcr.io/ublue-os/bazzite-nvidia:stable
             image_suffix: nvidia
-          - 
-            base_image: ghcr.io/ublue-os/bazzite:stable
-            image_suffix: generic
+          # - 
+          #   base_image: ghcr.io/ublue-os/bazzite:stable
+          #   image_suffix: generic
 
     permissions:
       contents: read
