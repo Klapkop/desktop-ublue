@@ -9,6 +9,9 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
+# Setup libvirt
+dnf5 install -y virt-install
+
 
 # Install Docker
 dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
