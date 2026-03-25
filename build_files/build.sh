@@ -39,7 +39,8 @@ dnf5 install -y \
   nc \
   strace \
   vagrant \
-  vagrant-libvirt
+  vagrant-libvirt \
+  direnv
 
 # Use a COPR Example:
 #
