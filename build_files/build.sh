@@ -18,6 +18,9 @@ dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fed
 dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 systemctl enable docker.socket
 
+# Setup virtualization
+dnf5 install -y @virtualization
+
 # Add vscode repo
 tee /etc/yum.repos.d/vscode.repo <<'EOF'
 [code]
