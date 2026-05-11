@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # Setup base
-dnf5 install -y virt-install openssh-server
+dnf5 install -y openssh-server
 
 
 # Install Docker
