@@ -7,6 +7,9 @@ COPY build_files /
 # Base Image
 FROM ${BASE_IMAGE}
 
+# Re-declare so it's available in this build stage
+ARG BASE_IMAGE
+
 ### [IM]MUTABLE /opt
 ## Some bootable images, like Fedora, have /opt symlinked to /var/opt, in order to
 ## make it mutable/writable for users. However, some packages write files to this directory,

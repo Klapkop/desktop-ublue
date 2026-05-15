@@ -53,7 +53,7 @@ dnf5 install -y \
 # dnf5 -y copr disable ublue-os/staging
 #
 
-if [[ $BASE_IMAGE = *"bazzite"* ]]; then
+if [[ $1 = *"bazzite"* ]]; then
 	source bazzite.sh
 fi
 
