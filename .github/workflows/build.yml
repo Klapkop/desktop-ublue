@@ -35,10 +35,9 @@ jobs:
       matrix:
         include:
           - base_image: ghcr.io/ublue-os/bazzite-nvidia:stable
-            image_suffix: nvidia
-          # - 
-          #   base_image: ghcr.io/ublue-os/bazzite:stable
-          #   image_suffix: generic
+            image_suffix: gaming
+          - base_image: ghcr.io/ublue-os/aurora:stable
+            image_suffix: dev
 
     permissions:
       contents: read
